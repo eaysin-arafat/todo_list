@@ -1,26 +1,54 @@
 /* eslint-disable react/prop-types */
-import timeInfo from "../../components/tamplate/timeInfo";
+import { Link, useLocation } from "react-router-dom";
+import Complated from "../../components/body/Complated";
+import { updateTodo } from "./todosSlice";
+import { useDispatch } from "react-redux";
 
 const Todo = ({ todo }) => {
-  // const times = timeInfo(todo.startDate);
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const times = String(todo.startDate).split(" ");
+  const weekName = String(times[0]);
+  const date = String(times[2]);
+  const month = String(times[1]);
+
+  const handleComplated = () => {
+    let data;
+    if (todo.complated === false) {
+      data = {
+        ...todo,
+        complated: true,
+      };
+    } else if (todo.complated === true) {
+      data = {
+        ...todo,
+        complated: false,
+      };
+    }
+
+    dispatch(updateTodo({ id: todo.id, data }));
+  };
+
   return (
-    <div className="flex gap-3 border-b border-gray-100 py-3">
-      <span
-        className={`h-[18px] w-[18px] rounded-full border-[2px] mt-[5px] cursor-pointer ${
-          todo.priority === "Normal" && "border-lime-600"
-        }`}
-      ></span>
-      <div>
-        <h1 className="text-[15px]">{todo.todoName}</h1>
-        <p className="text-[15px] text-gray-600 my-1">
-          {todo.text.slice(0, 180)}...
-        </p>
-        <div className="flex gap-10">
-          <p className="text-xs">{/* {times.date} {times.month} */}</p>
-          <span className="text-xs">{todo.Tags}</span>
-        </div>
+    <section>
+      <div className="flex gap-3 border-b border-gray-100 py-3 cursor-pointer">
+        <Complated todo={todo} handleComplated={handleComplated} />
+        <Link to={`/todo/${todo.id}`} state={{ background: location }}>
+          <div>
+            <h1 className="text-[15px]">{todo.todoName}</h1>
+            <p className="text-[15px] text-gray-600 my-1">
+              {todo.text.slice(0, 100)}
+            </p>
+            <div className="flex gap-10">
+              <p className="text-xs">
+                {weekName} {date} {month}
+              </p>
+              <span className="text-xs">{todo.Tags}</span>
+            </div>
+          </div>
+        </Link>
       </div>
-    </div>
+    </section>
   );
 };
 

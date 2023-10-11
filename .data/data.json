@@ -1,106 +1,72 @@
 {
   "todos": [
     {
-      "id": 1,
+      "endDate": "2023-10-11T19:38:33.230Z",
+      "id": "bh75654vjpVadsfsdfasdagddfgqei631Tc",
       "todoName": "By default, Tailwind includes grid-column utilities",
       "text": "Transition code base to ES6",
       "startDate": "Fri Sep 29 2023 04:03:39 GMT+0600 (Bangladesh Standard Time)",
-      "endDate": "Mon Apr 26 06:01:55 +0000 2015",
-      "duration": 5,
-      "priority": "Normal",
-      "approved": false,
+      "duration": "",
+      "priority": "P1",
+      "complated": true,
       "isInExpandState": false,
-      "Tags": ["ES6", "Web Development"],
-      "subtasks": [
-        {
-          "id": 2,
-          "todoName": "Plan timeline",
-          "text": "Transition code base to ES6",
-          "startDate": "Fri Sep 29 2023 04:03:39 GMT+0600 (Bangladesh Standard Time)",
-          "endDate": "Mon Apr 26 06:01:55 +0000 2015",
-          "duration": 5,
-          "priority": "Normal",
-          "approved": false
-        },
-        {
-          "id": 3,
-          "todoName": "By default, Tailwind includes grid-column utilities",
-          "text": "Transition code base to ES6",
-          "startDate": "Fri Sep 29 2023 04:03:39 GMT+0600 (Bangladesh Standard Time)",
-          "endDate": "Mon Apr 26 06:01:55 +0000 2015",
-          "duration": 5,
-          "priority": "Normal",
-          "approved": true
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "todoName": "Planning",
-      "text": "Transition code base to ES6",
-      "startDate": "Fri Sep 29 2023 04:03:39 GMT+0600 (Bangladesh Standard Time)",
-      "endDate": "Mon Apr 26 06:01:55 +0000 2015",
-      "duration": 5,
-      "priority": "Normal",
-      "approved": false,
-      "isInExpandState": false,
-      "Tags": ["ES6", "Web Development"],
+      "Tags": [
+        "ES6",
+        "Web Development"
+      ],
       "subtasks": []
     },
     {
-      "id": 3,
+      "endDate": "Mon Oct 23 2023 00:00:00 GMT+0600 (Bangladesh Standard Time)",
+      "id": "bh75654vjpVadsfsdffsdfasdagddfgqei631Tc",
       "todoName": "By default, Tailwind includes grid-column utilities",
       "text": "Transition code base to ES6",
       "startDate": "Fri Sep 29 2023 04:03:39 GMT+0600 (Bangladesh Standard Time)",
-      "endDate": "Mon Apr 26 06:01:55 +0000 2015",
-      "duration": 5,
-      "priority": "Normal",
-      "approved": false,
+      "duration": "",
+      "priority": "P4",
+      "complated": true,
       "isInExpandState": false,
-      "Tags": ["ES6", "Web Development"],
+      "Tags": [
+        "ES6",
+        "Web Development"
+      ],
       "subtasks": []
     },
     {
-      "id": 4,
-      "todoName": "Planning",
+      "id": "bh75654vjpVadsshhrdagddfgqei631Tc",
+      "todoName": "By default, Tailwind includes grid-column utilities",
       "text": "Transition code base to ES6",
       "startDate": "Fri Sep 29 2023 04:03:39 GMT+0600 (Bangladesh Standard Time)",
-      "endDate": "Mon Apr 26 06:01:55 +0000 2015",
-      "duration": 5,
-      "priority": "Normal",
-      "approved": false,
+      "endDate": "Wed Oct 04 2023 00:00:00 GMT+0600 (Bangladesh Standard Time)",
+      "duration": "",
+      "priority": "P2",
+      "complated": false,
       "isInExpandState": false,
-      "Tags": ["ES6", "Web Development"],
+      "Tags": [
+        "ES6",
+        "Web Development"
+      ],
       "subtasks": []
     },
     {
-      "id": 5,
-      "todoName": "Planning",
-      "text": "Transition code base to ES6",
-      "startDate": "Fri Sep 29 2023 04:03:39 GMT+0600 (Bangladesh Standard Time)",
-      "endDate": "Mon Apr 26 06:01:55 +0000 2015",
-      "duration": 5,
-      "priority": "Normal",
-      "approved": false,
+      "id": "A1vuISOiMsEAaXxhbWuXm",
+      "todoName": "new Dates",
+      "text": "to do workd tkdfkasdf",
+      "startDate": "Mon 9 Oct",
+      "priority": "P3",
+      "complated": false,
       "isInExpandState": false,
-      "Tags": ["ES6", "Web Development"],
-      "subtasks": [
-        {
-          "id": 2,
-          "todoName": "Plan timeline",
-          "text": "Transition code base to ES6",
-          "startDate": "Fri Sep 29 2023 04:03:39 GMT+0600 (Bangladesh Standard Time)",
-          "endDate": "Mon Apr 26 06:01:55 +0000 2015",
-          "duration": 5,
-          "priority": "Normal",
-          "approved": false
-        }
-      ]
+      "endDate": ""
     },
     {
-      "todoName": "todoName",
-      "text": "Become a highly-demanded Frontend developer by adding the Redux-Toolkit Skill set into your React knowledge. This course is desgined in such way that anybody can get enroll into this course who wanted to enhance their Redux concept.",
-      "id": 6
+      "id": "UwO5mrhuNv9KutdS4PzPq",
+      "todoName": "sdfasdf",
+      "text": "asdfasdfasdfasdfasdf",
+      "startDate": "Mon 9 Oct",
+      "priority": "P3",
+      "complated": false,
+      "isInExpandState": false,
+      "endDate": "Mon Mar 18 2024 00:00:00 GMT+0600 (Bangladesh Standard Time)"
     }
   ]
 }

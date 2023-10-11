@@ -13,7 +13,7 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { useState } from "react";
 import AddTask from "../tamplate/AddTask";
 
-const Navbar = () => {
+const Navbar = ({ handleSidebarToggle }) => {
   const [open, setOpen] = useState(false);
 
   const handleToggle = () => {
@@ -25,8 +25,8 @@ const Navbar = () => {
       <div>
         <ul className="flex justify-between items-center mx-4 h-10 text-white text-xl ">
           <div className="flex items-center justify-center">
-            <li className="mr-4 cursor-pointer">
-              <AiOutlineMenu onClick={handleToggle} />
+            <li className="mr-4 cursor-pointer" onClick={handleSidebarToggle}>
+              <AiOutlineMenu />
             </li>
             <li className="mr-4">
               <Link to="/">
@@ -75,8 +75,12 @@ const Navbar = () => {
           </div>
         </ul>
 
-        <div className="absolute w-[700px] top-48 left-[1050px] transform -translate-x-1/2 -translate-y-1/2 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] ">
-          {open && <AddTask />}
+        <div
+          className={`absolute w-[700px] top-56 left-[950px] transform -translate-x-1/2 -translate-y-1/2 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] ${
+            open === true && "transition duration-300 ease-in-out"
+          }`}
+        >
+          {open && <AddTask open={open} setOpen={setOpen} />}
         </div>
       </div>
     </div>

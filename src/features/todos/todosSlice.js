@@ -24,6 +24,14 @@ export const addTodo = createAsyncThunk(
   }
 );
 
+export const updateTodo = createAsyncThunk(
+  "todos/updateTodo",
+  async ({ id, data }) => {
+    const response = await todosHTTP.update(id, data);
+    return response.data;
+  }
+);
+
 const todosSlice = createSlice({
   name: "todos",
   initialState,
@@ -43,7 +51,21 @@ const todosSlice = createSlice({
       .addCase(addTodo.fulfilled, (state, action) => {
         state.todos.push(action.payload);
       });
+    // .addCase(updateTodo.fulfilled, (state, action) => {
+    //   const index = state.todos.findIndex(
+    //     (todo) => todo.id === action.payload.id
+    //   );
+    //   console.log(index);
+    //   console.log(action.payload);
+    //   // if (index !== -1) {
+    //   //   state.todos.todos[index] = {
+    //   //     ...state.todos.todos[index],
+    //   //     ...action.payload,
+    //   //   };
+    //   // }
+    // });
   },
 });
 
+// export const { isComplated } = todosSlice.actions;
 export default todosSlice.reducer;

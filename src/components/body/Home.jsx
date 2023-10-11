@@ -6,32 +6,26 @@ import Sidebar from "./Sidebar";
 const Home = () => {
   const [open, setOpen] = useState(true);
 
-  const handleToggle = () => {
-    open === true ? setOpen(false) : setOpen(true);
+  const handleSidebarToggle = () => {
+    // open === true ? setOpen(false) : setOpen(true);
+    setOpen((current) => !current);
+    console.log("clicked");
   };
 
   return (
-    <section>
+    <section className="w-screen h-screen overflow-x-hidden">
       <header className="absolute w-screen">
-        <Navbar handleToggle={handleToggle} />
+        <Navbar handleSidebarToggle={handleSidebarToggle} />
       </header>
-      <div className="flex gap-32">
+      <div className="flex gap-20">
         <div
-          className={`bg-[#FAFAFA] h-screen pt-[55px] ${
-            open === true ? "w-[450px] " : "hidden"
-          } transition duration-500 ease-in-out`}
-        >
-          <div className={`${open === true && "transition-all duration-1000"}`}>
-            <Sidebar />
-          </div>
-        </div>
-        <div
-          className={`${
-            open === true
-              ? "pt-[55px] w-full mr-[130px]"
-              : "pt-[55px] w-full mr-[130px] ml-[441px]"
+          className={`bg-[#FAFAFA] h-screen pt-[55px] duration-300 w-[550px] ${
+            open === true ? "ml-8 mr-28" : "mr-6 invisible"
           }`}
         >
+          <Sidebar />
+        </div>
+        <div className="w-full mr-[500px] pt-[80px] font-sans">
           <Outlet />
         </div>
       </div>

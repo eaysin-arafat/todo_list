@@ -1,11 +1,28 @@
-import { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
+import { MdOutlineEmergency } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { updateTodo } from "../../features/todos/todosSlice";
 
-const Priority = () => {
+const Priority = ({ selected, setIsSelected, positionCss, todos }) => {
   const [isActive, setIsActive] = useState(false);
-  const [selected, setIsSelected] = useState("Priority");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const data = {
+      ...todos,
+      priority: selected,
+    };
+    dispatch(updateTodo({ id: todos.id, data }));
+  }, [selected]);
+
+  // const handlePriorityUpdate = () => {
+  //   // setIsSelected("");
+  // };
 
   return (
-    <div className="relative w-16">
+    <div className="relative w-fit">
       <div
         onClick={() => setIsActive(!isActive)}
         className="cursor-pointer relative text-center"
@@ -13,44 +30,56 @@ const Priority = () => {
         {selected}
       </div>
       <ul
-        className={`absolute flex left-[-23px] w-[105px] flex-col mt-2 bg-white border-[.5px] border-gray-300 rounded-md ${
+        className={`${positionCss} absolute flex justify-center items-center text-sm w-[120px] flex-col mt-2 bg-white border-[1px] border-gray-300 rounded-md ${
           isActive === true ? "block" : "hidden"
         }`}
+        onChange={() => {
+          setIsSelected(selected);
+        }}
+        value={selected}
       >
         <li
-          onClick={(e) => {
-            setIsSelected(e.target.textContent);
+          onClick={() => {
+            setIsSelected("P1");
             setIsActive(!isActive);
+            // handlePriorityUpdate();
           }}
-          className="hover:bg-[#eee0e0] py-1 px-5 cursor-pointer"
+          className="hover:bg-[#eee0e0] py-1 cursor-pointer w-full text-center flex items-center justify-center gap-4"
         >
+          <MdOutlineEmergency className="text-red-600" />
           Priority 01
         </li>
         <li
-          onClick={(e) => {
-            setIsSelected(e.target.textContent);
+          onClick={() => {
+            setIsSelected("P2");
             setIsActive(!isActive);
+            // handlePriorityUpdate();
           }}
-          className="hover:bg-[#eee0e0] py-1 px-5 cursor-pointer"
+          className="hover:bg-[#eee0e0] py-1 cursor-pointer w-full text-center flex items-center justify-center gap-4"
         >
+          <MdOutlineEmergency className="text-orange-400" />
           Priority 02
         </li>
         <li
-          onClick={(e) => {
-            setIsSelected(e.target.textContent);
+          onClick={() => {
+            setIsSelected("P3");
             setIsActive(!isActive);
+            // handlePriorityUpdate();
           }}
-          className="hover:bg-[#eee0e0] py-1 px-5 cursor-pointer"
+          className="hover:bg-[#eee0e0] py-1 cursor-pointer w-full text-center flex items-center justify-center gap-4"
         >
+          <MdOutlineEmergency className="text-lime-600" />
           Priority 03
         </li>
         <li
-          onClick={(e) => {
-            setIsSelected(e.target.textContent);
+          onClick={() => {
+            setIsSelected("P4");
             setIsActive(!isActive);
+            // handlePriorityUpdate();
           }}
-          className="hover:bg-[#eee0e0] py-1 px-5 cursor-pointer pb-2"
+          className="hover:bg-[#eee0e0] py-1 cursor-pointer w-full text-center flex items-center justify-center gap-4 pb-2"
         >
+          <MdOutlineEmergency className="text-gray-600" />
           Priority 04
         </li>
       </ul>
@@ -59,82 +88,3 @@ const Priority = () => {
 };
 
 export default Priority;
-
-// import React, { useEffect, useState } from "react";
-// import { BiChevronDown } from "react-icons/bi";
-// import { AiOutlineSearch } from "react-icons/ai";
-
-// const Selector = () => {
-//   const [countries, setCountries] = useState(null);
-//   const [inputValue, setInputValue] = useState("");
-//   const [selected, setSelected] = useState("");
-//   const [open, setOpen] = useState(false);
-
-//   useEffect(() => {
-//     fetch("https://restcountries.com/v2/all?fields=name")
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setCountries(data);
-//       });
-//   }, []);
-
-//   return (
-//     <div className="w-72 font-medium h-80">
-//       <div
-//         onClick={() => setOpen(!open)}
-//         className={`bg-white w-full p-2 flex items-center justify-between rounded ${
-//           !selected && "text-gray-700"
-//         }`}
-//       >
-//         {selected
-//           ? selected?.length > 25
-//             ? selected?.substring(0, 25) + "..."
-//             : selected
-//           : "Select Country"}
-//         <BiChevronDown size={20} className={`${open && "rotate-180"}`} />
-//       </div>
-//       <ul
-//         className={`bg-white mt-2 overflow-y-auto ${
-//           open ? "max-h-60" : "max-h-0"
-//         } `}
-//       >
-//         <div className="flex items-center px-2 sticky top-0 bg-white">
-//           <AiOutlineSearch size={18} className="text-gray-700" />
-//           <input
-//             type="text"
-//             value={inputValue}
-//             onChange={(e) => setInputValue(e.target.value.toLowerCase())}
-//             placeholder="Enter country name"
-//             className="placeholder:text-gray-700 p-2 outline-none"
-//           />
-//         </div>
-//         {countries?.map((country) => (
-//           <li
-//             key={country?.name}
-//             className={`p-2 text-sm hover:bg-sky-600 hover:text-white
-//             ${
-//               country?.name?.toLowerCase() === selected?.toLowerCase() &&
-//               "bg-sky-600 text-white"
-//             }
-//             ${
-//               country?.name?.toLowerCase().startsWith(inputValue)
-//                 ? "block"
-//                 : "hidden"
-//             }`}
-//             onClick={() => {
-//               if (country?.name?.toLowerCase() !== selected.toLowerCase()) {
-//                 setSelected(country?.name);
-//                 setOpen(false);
-//                 setInputValue("");
-//               }
-//             }}
-//           >
-//             {country?.name}
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default Selector;

@@ -1,9 +1,9 @@
 import { Fragment } from "react";
-import timeInfo from "../tamplate/timeInfo";
+import getDayName from "../tamplate/timeInfo";
 import { HiOutlineViewGridAdd } from "react-icons/hi";
 
 const Today = () => {
-  const time = timeInfo();
+  const timeInfo = getDayName();
 
   return (
     <Fragment>
@@ -11,8 +11,8 @@ const Today = () => {
         <div className="flex gap-2 justify-center items-center">
           <h2 className="text-xl font-extrabold">Today</h2>
           <h1 className="text-sm text-gray-600 mt-1">
-            {timeInfo.weekName.substring(0, 3)} {time.date}{" "}
-            {time.month.substring(0, 3)}
+            {timeInfo.weekName.substring(0, 3)} {timeInfo.date}{" "}
+            {timeInfo.month.substring(0, 3)}
           </h1>
         </div>
         <div className="flex items-center gap-2">

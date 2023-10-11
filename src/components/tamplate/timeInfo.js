@@ -1,4 +1,4 @@
-function timeInfo(date = new Date(), locale = "en-US") {
+function getDayName(date = new Date(), locale = "en-US") {
   const times = {
     weekName: date.toLocaleDateString(locale, { weekday: "long" }),
     date: date.getDate(),
@@ -7,4 +7,4 @@ function timeInfo(date = new Date(), locale = "en-US") {
   return times;
 }
 
-export default timeInfo;
+export default getDayName;

@@ -8,7 +8,7 @@ import ShortcurAddTask from "../tamplate/ShortcurAddTask";
 const Inbox = () => {
   return (
     <Fragment>
-      <div className="">
+      <div>
         <div className="flex justify-between">
           <div className="">
             <h2 className="text-xl font-extrabold">Inbox</h2>
@@ -25,9 +25,16 @@ const Inbox = () => {
           </div>
         </div>
 
-        <div className="mt-3">
+        <div className="mt-3 mb-7">
           <TodosList />
-          <ShortcurAddTask />
+          <ShortcurAddTask
+            IconColor="red"
+            hoverBgColor="red"
+            hoverColor="text-white"
+            text="Add task"
+            other=""
+            isBorder="border border-gray-200"
+          />
         </div>
       </div>
     </Fragment>

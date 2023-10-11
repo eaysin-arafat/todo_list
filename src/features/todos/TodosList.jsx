@@ -3,12 +3,10 @@ import { useEffect } from "react";
 import { fetchTodos } from "./todosSlice";
 import Todo from "./Todo";
 
-const SingleTodo = () => {
+const TodoList = () => {
   const todos = useSelector((state) => state.todos.todos);
-  console.log(todos);
   const status = useSelector((state) => state.todos.status);
   const error = useSelector((state) => state.todos.error);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +22,6 @@ const SingleTodo = () => {
       <div>
         {todos.map((todo) => (
           <div key={todo.id}>
-            {console.log(todo)}
             <Todo todo={todo} />
           </div>
         ))}
@@ -37,4 +34,4 @@ const SingleTodo = () => {
   return <div>{content}</div>;
 };
 
-export default SingleTodo;
+export default TodoList;
